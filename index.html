@@ -6,20 +6,26 @@
   <title>Portfolio</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="m-0 p-0 text-white overflow-x-hidden">
-
-    <!-- 🔥 LOADING SCREEN -->
+<!-- 🔥 CINEMATIC TYPE LOADER -->
 <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-[999]">
 
-  <h1 class="text-3xl md:text-5xl font-bold text-white tracking-widest">
+  <!-- glow -->
+  <div class="absolute w-[350px] h-[350px] bg-purple-500/20 blur-3xl rounded-full animate-pulse"></div>
+
+  <!-- text -->
+  <h1 class="text-4xl md:text-6xl text-white tracking-[0.25em]"
+      style="font-family:Brittany Signature;">
     <span id="loader-text"></span>
     <span class="border-r-2 border-purple-400 ml-2 animate-pulse"></span>
   </h1>
 
 </div>
-
   <!-- 🔹 Background -->
   <div class="fixed inset-0 -z-10">
     <!-- 🔥 Floating Tech Particles -->
@@ -65,6 +71,8 @@
   <span class="border-r-2 border-purple-400 ml-1 animate-pulse"></span>
 </p>
       </div>
+
+      
 
       <!-- PROFILE -->
       <div class="relative pr-4">
@@ -281,6 +289,19 @@
   </div>
 </section>
 
+
+<a href="https://ayush0ft014.github.io/Tic-Tac-Toe/" target="_blank"
+   class="inline-block mt-6 px-6 py-3 rounded-full 
+   bg-gradient-to-r from-purple-500 to-blue-500 
+   text-white font-semibold tracking-wide
+   hover:scale-110 transition duration-300 
+   shadow-[0_0_20px_rgba(168,85,247,0.6)]
+   animate-pulse">
+
+   🎮 Play Game
+</a>
+
+
     <!-- CONTACT -->
    <section class="mt-20 max-w-3xl">
   <h2 class="text-3xl font-semibold mb-6 text-purple-400">Contact Me</h2>
@@ -311,6 +332,9 @@
   
   </form>
 </section>
+
+
+   
 
 <div class="mt-8 flex justify-center items-center gap-6">
   <!-- Instagram -->
@@ -369,6 +393,17 @@
   </div>
 
 </div>
+
+<style>
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 blue; }
+  20% { text-shadow: -2px 0 red, 2px 0 blue; }
+  40% { text-shadow: 2px 2px red, -2px -2px blue; }
+  60% { text-shadow: -2px -2px red, 2px 2px blue; }
+  80% { text-shadow: 2px 0 red, -2px 0 blue; }
+  100% { text-shadow: none; }
+}
+</style>
 
   <script>
     document.addEventListener("mousemove", (e) => {
@@ -455,32 +490,32 @@ function closeResume() {
   document.getElementById("resumeModal").classList.add("hidden");
 }
 
-const nameText = "Ayush Raj";
+const text = "AYUSH RAJ";
 let i = 0;
 
-function typeLoader() {
-  if (i < nameText.length) {
-    document.getElementById("loader-text").innerHTML += nameText.charAt(i);
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("loader-text").innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeLoader, 80);
+    setTimeout(typeEffect, 100);
   } else {
     setTimeout(() => {
       const loader = document.getElementById("loader");
-      
-      // smooth fade
-      loader.style.transition = "opacity 0.8s ease";
+
+      loader.style.transition = "all 1s ease";
       loader.style.opacity = "0";
+      loader.style.transform = "scale(1.1)";
 
       setTimeout(() => {
-        loader.remove(); // better than display none
-      }, 800);
+        loader.remove();
+      }, 1000);
 
     }, 800);
   }
 }
 
 window.addEventListener("load", () => {
-  setTimeout(typeLoader, 300);
+  setTimeout(typeEffect, 300);
 });
 
   </script>
